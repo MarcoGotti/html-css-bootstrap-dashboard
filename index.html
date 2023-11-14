@@ -1,51 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="./assets/css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body class="debug">
     <header class="site-header">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="header-left d-flex gap-1">
-                <div class="logo"></div>
-                <ul class="nav d-none d-lg-block">
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                </ul>
-            </div>
-            <div class="header-right">
-                <div class="menu-icon d-lg-none"></div>
-                <div class="search-bar d-none d-lg-block">
-                    <input type="search" placeholder="Cerca..." name="" id="">
-                    <button>Cerca</button>
-                </div>
-            </div>
+      <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="./assets/img/duck.png" alt="Brand" width="60px" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Catalogo Libri</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Anagrafica Utenti</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Storico Prestiti</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2 text-bg-light"
+                type="search"
+                placeholder="Cerca..."
+                aria-label="Search"
+              />
+              <button
+                class="btn text-light border-1 border-light"
+                type="submit"
+              >
+                Cerca
+              </button>
+            </form>
+          </div>
         </div>
+      </nav>
     </header>
     <main class="site-main">
-        <div class="container">
-            <div class="row flex-column flex-lg-row">
-                <div class="col-12 col-lg-9 py-3">
-                    <div class="catalog d-flex justify-content-between pb-3">
-                        <h2>Catalogo Libri</h2>
-                        <button>Aggiungi Libro</button>
-                    </div>
-                    <div class="books-list">tabella</div>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="extras">
-                        <div class="todo mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dolor eligendi, libero quam eveniet voluptatibus harum quidem reprehenderit nihil eos aliquam fugit ducimus dolorem voluptate.</div>
-                        <div class="faq">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia obcaecati provident iusto incidunt dignissimos explicabo! Nemo explicabo velit pariatur fugit doloremque nulla. Aperiam, laboriosam ratione?</div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row flex-column flex-lg-row">
+          <div class="col-12 col-lg-9 py-3">
+            <div class="catalog d-flex justify-content-between pb-3">
+              <h2>Catalogo Libri</h2>
+              <button type="button" class="btn btn-primary btn-sm">
+                Aggiungi Libro
+              </button>
             </div>
+            <div class="books-list">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="w-50" scope="col">Titolo</th>
+                    <th class="d-none d-md-block" scope="col">Data Prestito</th>
+                    <th scope="col">Stato</th>
+                    <th class="text-center" scope="col">Azioni</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">I pilastri della terra</td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-success">Disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">I promessi sposi</td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-success">Disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Il signore degli anelli</td>
+                    <td class="d-none d-md-table-cell">18/10/2023</td>
+                    <td>
+                      <span class="badge bg-warning text-white"
+                        >In prestito</span
+                      >
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Harry Potter e la pietra filosofale</td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-success">Disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">
+                      Le cronache di Narnia: il leone, la strega e l'armadio
+                    </td>
+                    <td class="d-none d-md-table-cell">25/07/2023</td>
+                    <td>
+                      <span class="badge text-bg-danger">Non disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3">
+            <div class="extras">
+              <div class="todo mb-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+                dolor eligendi, libero quam eveniet voluptatibus harum quidem
+                reprehenderit nihil eos aliquam fugit ducimus dolorem voluptate.
+              </div>
+              <div class="faq">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Mollitia obcaecati provident iusto incidunt dignissimos
+                explicabo! Nemo explicabo velit pariatur fugit doloremque nulla.
+                Aperiam, laboriosam ratione?
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

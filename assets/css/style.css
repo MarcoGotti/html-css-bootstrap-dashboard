@@ -1,35 +1,33 @@
-.debug .site-header{
+/* .debug .site-header{
     background-color: blue;
     height: 85px;
     width: 100%;
-}
+} */
 
-.debug .logo{
+/* .debug .logo{
     background-color: rgb(255, 38, 0);
     height: 50px;
     width: 50px;
-}
+} */
 
-.debug .nav{
+/* .debug .nav{
     background-color: rgb(255, 38, 0);
     height: 50px;
     width: 120px;
-}
+} */
 
-.debug .books-list{
+/* .debug .books-list{
     background-color: rgb(246, 255, 0);
     height: 200px;
     width: 100%;
-}
+} */
 
-.debug .menu-icon{
+/* .debug .menu-icon{
     background-color: rgb(255, 0, 0);
     height: 50px;
     width: 50px;
-}
+} */
 
 /* extra properties */
 
-.container{
-    height: 100%;
-}
+
