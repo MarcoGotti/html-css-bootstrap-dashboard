@@ -72,16 +72,35 @@
         </div>
       </nav>
     </header>
+    <!-- ./header -->
     <main class="site-main">
       <div class="container">
         <div class="row flex-column flex-lg-row">
           <div class="col-12 col-lg-9">
             <div class="catalog d-flex justify-content-between pb-3">
               <h2>Catalogo Libri</h2>
-              <button type="button" class="btn btn-primary btn-sm">
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 Aggiungi Libro
               </button>
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Aggiungi libro</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    <input class="form-control form-control-sm mb-2" type="text" placeholder="Titolo libro" aria-label=".form-control-sm">
+                    <input class="form-control form-control-sm mb-3" type="text" placeholder="Autore completo 'es: Steven King'" aria-label=".form-control-sm">
+                  </div>
+                  <div>Il libro viene inserito come&nbsp;<span class="badge text-bg-success">Disponibile</span></div>
+                  <div class="mb-5">Per modificarne lo stato usare i links <span class="fw-bolder">Azioni</span></div>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-lg">Aggiungi</button>
+                  </div>              
+                </div>
+              </div>
             </div>
+            <!-- ./catalog with offcanvas -->
             <div class="books-list">
               <table class="table table-striped">
                 <thead>
@@ -94,23 +113,81 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td scope="row">I pilastri della terra</td>
+                    <td scope="row" class="text-nowrap">I pilastri della terra</td>
                     <td class="d-none d-md-table-cell">-</td>
                     <td>
                       <span class="badge text-bg-success">Disponibile</span>
                     </td>
                     <td class="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm me-1"
-                      >
-                        <i class="fa-solid fa-pen"></i></button
-                      ><button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm"
-                      >
+                      <button type="button" class="btn btn-outline-secondary btn-sm me-1" data-bs-toggle="offcanvas" data-bs-target="#modify1" aria-controls="offcanvasModify">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <!-- ./Modify-button trigger Modal -->
+                      <div class="offcanvas offcanvas-start" tabindex="-1" id="modify1" aria-labelledby="offcanvasModify">
+                        <div class="offcanvas-header">
+                          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Modifica</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                          <div>
+                            <input class="form-control" type="text" value="I pilastri della terra" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+                          </div>  
+                          <hr class="my-4">                       
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    <span class="badge text-bg-success">Disponibile</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    <span class="badge text-bg-danger">Non disponibile</span>
+                                </label>
+                            </div>                         
+                          <div class="d-flex gap-2 mt-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    <span class="badge bg-warning text-white">In prestito</span>
+                                </label>
+                              </div>
+                              <div>
+                                <label for="flexSwitchCheckDefault">fino al:</label>
+                                <input type="date" id="flexSwitchCheckDefault" name="trip-start" value="2023-11-22" min="2023-01-01" max="2050-12-31" />
+                              </div>          
+                          </div> 
+                          <hr class="my-4">                                        
+                          <div class="text-center">
+                            <button type="button" class="btn btn-primary btn-lg">Modifica</button>
+                          </div>              
+                        </div>
+                      </div>
+                      <!-- ./Modify-button Modal -->
+                      <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal1">
                         <i class="fa-solid fa-trash"></i>
                       </button>
+                      <!-- ./Trash-button trigger Modal -->
+                      <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+                        <div class="modal-dialog">
+                         <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="btn btn-outline-danger btn-lg">
+                                <i class="fa-solid fa-trash"></i>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Elimina questo titolo:
+                            <h6>I pilastri della terra</h6>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Elimina</button>
+                            <button type="button" class="btn btn-secondary">Annulla</button>
+                          </div>
+                         </div>
+                        </div>
+                      </div>
+                      <!-- ./Trash-button Modal -->
                     </td>
                   </tr>
                   <tr>
@@ -120,17 +197,75 @@
                       <span class="badge text-bg-success">Disponibile</span>
                     </td>
                     <td class="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm me-1"
-                      >
-                        <i class="fa-solid fa-pen"></i></button
-                      ><button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm"
-                      >
-                        <i class="fa-solid fa-trash"></i>
-                      </button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm me-1" data-bs-toggle="offcanvas" data-bs-target="#modify2" aria-controls="offcanvasModify">
+                            <i class="fa-solid fa-pen"></i>
+                          </button>
+                          <!-- ./Trash-button trigger Modal -->
+                          <div class="offcanvas offcanvas-start" tabindex="-1" id="modify2" aria-labelledby="offcanvasModify">
+                            <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Modifica</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                              <div>
+                                <input class="form-control" type="text" value="I promessi sposi" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+                              </div>  
+                              <hr class="my-4">                       
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <span class="badge text-bg-success">Disponibile</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <span class="badge text-bg-danger">Non disponibile</span>
+                                    </label>
+                                </div>                         
+                              <div class="d-flex gap-2 mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        <span class="badge bg-warning text-white">In prestito</span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <label for="flexSwitchCheckDefault">fino al:</label>
+                                    <input type="date" id="flexSwitchCheckDefault" name="trip-start" value="2023-11-22" min="2023-01-01" max="2050-12-31" />
+                                  </div>          
+                              </div> 
+                              <hr class="my-4">                                        
+                              <div class="text-center">
+                                <button type="button" class="btn btn-primary btn-lg">Modifica</button>
+                              </div>              
+                            </div>
+                          </div>
+                          <!-- ./Modify-button Modal -->
+                          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal2">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                          <!-- ./Trash-button trigger Modal -->
+                          <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+                            <div class="modal-dialog">
+                             <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="btn btn-outline-danger btn-lg">
+                                    <i class="fa-solid fa-trash"></i>
+                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Elimina questo titolo:
+                                <h6>I promessi sposi</h6>
+                              </div>                             
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Elimina</button>
+                                <button type="button" class="btn btn-secondary">Annulla</button>
+                              </div>
+                             </div>
+                            </div>
+                          </div>
+                          <!-- ./Trash-button Modal -->
                     </td>
                   </tr>
                   <tr>
@@ -142,17 +277,75 @@
                       >
                     </td>
                     <td class="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm me-1"
-                      >
-                        <i class="fa-solid fa-pen"></i></button
-                      ><button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm"
-                      >
-                        <i class="fa-solid fa-trash"></i>
-                      </button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm me-1" data-bs-toggle="offcanvas" data-bs-target="#modify3" aria-controls="offcanvasModify">
+                            <i class="fa-solid fa-pen"></i>
+                          </button>
+                          <!-- ./Modify-button trigger Modal -->
+                          <div class="offcanvas offcanvas-start" tabindex="-1" id="modify3" aria-labelledby="offcanvasModify">
+                            <div class="offcanvas-header">
+                              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Modifica</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                              <div>
+                                <input class="form-control" type="text" value="Il signore degli anelli" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+                              </div>  
+                              <hr class="my-4">                       
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <span class="badge text-bg-success">Disponibile</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <span class="badge text-bg-danger">Non disponibile</span>
+                                    </label>
+                                </div>                         
+                              <div class="d-flex gap-2 mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        <span class="badge bg-warning text-white">In prestito</span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <label for="flexSwitchCheckDefault">fino al:</label>
+                                    <input type="date" id="flexSwitchCheckDefault" name="trip-start" value="2023-11-22" min="2023-01-01" max="2050-12-31" />
+                                  </div>          
+                              </div> 
+                              <hr class="my-4">                                        
+                              <div class="text-center">
+                                <button type="button" class="btn btn-primary btn-lg">Modifica</button>
+                              </div>              
+                            </div>
+                          </div>
+                          <!-- ./Modify-button Modal -->
+                          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal3">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                          <!-- ./Trash-button trigger Modal -->
+                          <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+                            <div class="modal-dialog">
+                             <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="btn btn-outline-danger btn-lg">
+                                    <i class="fa-solid fa-trash"></i>
+                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Elimina questo titolo:
+                                <h6>Il signore degli anelli</h6>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Elimina</button>
+                                <button type="button" class="btn btn-secondary">Annulla</button>
+                              </div>
+                             </div>
+                            </div>
+                          </div>
+                          <!-- ./Trash-button Modal -->
                     </td>
                   </tr>
                   <tr>
@@ -177,11 +370,137 @@
                   </tr>
                   <tr>
                     <td scope="row">
-                      Le cronache di Narnia: il leone, la strega e l'armadio
+                      Il codice Da Vinci
                     </td>
-                    <td class="d-none d-md-table-cell">25/07/2023</td>
+                    <td class="d-none d-md-table-cell">-</td>
                     <td>
                       <span class="badge text-bg-danger">Non disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Shining</td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-success">Disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">La Divina Commedia</td>
+                    <td class="d-none d-md-table-cell">21/09/2023</td>
+                    <td>
+                      <span class="badge bg-warning text-white"
+                        >In prestito</span
+                      >
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Il trono di spade</td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-success">Disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">
+                      Il mondo di Sophie
+                    </td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-danger">Non disponibile</span>
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Le cronache di Narnia: il leone, la strega e l'armadio</td>
+                    <td class="d-none d-md-table-cell">25/07/2023</td>
+                    <td>
+                      <span class="badge bg-warning text-white"
+                        >In prestito</span
+                      >
+                    </td>
+                    <td class="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm me-1"
+                      >
+                        <i class="fa-solid fa-pen"></i></button
+                      ><button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Il piccolo principe</td>
+                    <td class="d-none d-md-table-cell">-</td>
+                    <td>
+                      <span class="badge text-bg-success">Disponibile</span>
                     </td>
                     <td class="d-flex justify-content-center">
                       <button
@@ -204,24 +523,24 @@
           <div class="col-12 col-lg-3">
             <div class="extras">
               <div class="todo mb-3 border rounded">
-                <div class="border-bottom  bg-body-tertiary  p-2 ">
+                <div class="border-bottom bg-body-tertiary p-2 fs-4">
                 Todo
                 </div>
                 <div class="p-3">
                     <div class="border rounded">
-                        <div class="border-bottom py-2 px-3">
+                        <div class="border-bottom py-2 px-3 text-nowrap overflow-hidden">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                               Chiamare segreteria
                             </label>
                           </div>
-                          <div class="border-bottom py-2 px-3">
+                          <div class="border-bottom py-2 px-3 text-nowrap overflow-hidden">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                               Mandare avvisi prestiti scaduti
                             </label>
                           </div>
-                          <div class="border-bottom py-2 px-3">
+                          <div class="border-bottom py-2 px-3 text-nowrap overflow-hidden">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                               Ordinare nuovi libri
@@ -232,7 +551,7 @@
               </div>
               
               <div class="faq mb-3 border rounded">
-                <div class="border-bottom  bg-body-tertiary  p-2 ">
+                <div class="border-bottom bg-body-tertiary p-2 fs-4">
                 F.A.Q.
                 </div>
                 <div class="p-3">
