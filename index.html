@@ -26,10 +26,10 @@
           <a class="navbar-brand" href="#">
             <img src="./assets/img/duck.png" alt="Brand" width="60px" />
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainnav" aria-controls="mainnav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="mainnav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"
@@ -45,9 +45,9 @@
                 <a class="nav-link" href="#">Help</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 text-bg-light" type="search" placeholder="Cerca..." aria-label="Search"/>
-              <button class="btn text-light border-1 border-light" type="submit">
+            <form class="d-flex">
+              <input class="form-control me-2 text-bg-light" type="text" placeholder="Cerca..."/>
+              <button class="btn btn-outline-light " type="submit">
                 Cerca
               </button>
             </form>
@@ -62,12 +62,12 @@
           <div class="col-12 col-lg-9">
             <div class="catalog d-flex justify-content-between pb-3">
               <h2>Catalogo Libri</h2>
-              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#addBook" aria-controls="addBook">
                 Aggiungi Libro
               </button>
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="addBook" aria-labelledby="addBookLabel">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Aggiungi libro</h5>
+                  <h5 class="offcanvas-title" id="addBookLabel">Aggiungi libro</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -101,11 +101,11 @@
                     <td>
                       <span class="badge text-bg-success">Disponibile</span>
                     </td>
-                    <td class="d-flex justify-content-center">
+                    <td class="d-flex justify-content-center ">
                       <button type="button" class="btn btn-outline-secondary btn-sm me-1" data-bs-toggle="offcanvas" data-bs-target="#modify1" aria-controls="offcanvasModify">
                         <i class="fa-solid fa-pen"></i>
                       </button>
-                      <!-- ./Modify-button trigger Modal -->
+                      <!-- ./Modify-button trigger offcanvas -->
                       <div class="offcanvas offcanvas-start" tabindex="-1" id="modify1" aria-labelledby="offcanvasModify">
                         <div class="offcanvas-header">
                           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Modifica</h5>
@@ -146,7 +146,7 @@
                           </div>              
                         </div>
                       </div>
-                      <!-- ./Modify-button Modal -->
+                      <!-- ./Modify-button offcanvas -->
                       <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal1">
                         <i class="fa-solid fa-trash"></i>
                       </button>
@@ -161,7 +161,7 @@
                           </div>
                           <div class="modal-body">
                             Elimina questo titolo:
-                            <h6>I pilastri della terra</h6>
+                            <h5>I pilastri della terra</h5>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Elimina</button>
@@ -183,7 +183,7 @@
                         <button type="button" class="btn btn-outline-secondary btn-sm me-1" data-bs-toggle="offcanvas" data-bs-target="#modify2" aria-controls="offcanvasModify">
                             <i class="fa-solid fa-pen"></i>
                           </button>
-                          <!-- ./Trash-button trigger Modal -->
+                          <!-- ./Modify-button trigger offcanvas -->
                           <div class="offcanvas offcanvas-start" tabindex="-1" id="modify2" aria-labelledby="offcanvasModify">
                             <div class="offcanvas-header">
                               <h5 class="offcanvas-title" id="offcanvasExampleLabel">Modifica</h5>
@@ -224,7 +224,7 @@
                               </div>              
                             </div>
                           </div>
-                          <!-- ./Modify-button Modal -->
+                          <!-- ./Modify-button offcanvas -->
                           <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal2">
                             <i class="fa-solid fa-trash"></i>
                           </button>
@@ -239,7 +239,7 @@
                               </div>
                               <div class="modal-body">
                                 Elimina questo titolo:
-                                <h6>I promessi sposi</h6>
+                                <h5>I promessi sposi</h5>
                               </div>                             
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Elimina</button>
@@ -263,7 +263,7 @@
                         <button type="button" class="btn btn-outline-secondary btn-sm me-1" data-bs-toggle="offcanvas" data-bs-target="#modify3" aria-controls="offcanvasModify">
                             <i class="fa-solid fa-pen"></i>
                           </button>
-                          <!-- ./Modify-button trigger Modal -->
+                          <!-- ./Modify-button trigger offcanvas -->
                           <div class="offcanvas offcanvas-start" tabindex="-1" id="modify3" aria-labelledby="offcanvasModify">
                             <div class="offcanvas-header">
                               <h5 class="offcanvas-title" id="offcanvasExampleLabel">Modifica</h5>
@@ -304,7 +304,7 @@
                               </div>              
                             </div>
                           </div>
-                          <!-- ./Modify-button Modal -->
+                          <!-- ./Modify-button offcanvas -->
                           <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal3">
                             <i class="fa-solid fa-trash"></i>
                           </button>
@@ -319,7 +319,7 @@
                               </div>
                               <div class="modal-body">
                                 Elimina questo titolo:
-                                <h6>Il signore degli anelli</h6>
+                                <h5>Il signore degli anelli</h5>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Elimina</button>
